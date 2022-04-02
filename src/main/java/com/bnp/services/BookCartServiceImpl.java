@@ -28,6 +28,10 @@ public class BookCartServiceImpl {
 				double basePrice = bookList.size() * 50;
 				double discountedPriceForSet = basePrice - ((basePrice * 20) / 100.0);
 				calculatedPrice += discountedPriceForSet;
+			}else if (bookList.size() == 5) {
+				double basePrice = bookList.size() * 50;
+				double discountedPriceForSet = basePrice - ((basePrice * 25) / 100.0);
+				calculatedPrice += discountedPriceForSet;
 			}
 		}
 
