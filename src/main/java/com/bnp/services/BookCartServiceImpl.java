@@ -3,13 +3,14 @@ package com.bnp.services;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public class BookCartServiceImpl{
+import com.bnp.model.ShoppingCartItem;
 
-	public double calculatePrice(String book) {
-		return 50.0;
-		
+@Service
+public class BookCartServiceImpl {
+
+	public double calculatePrice(ShoppingCartItem shoppingCartItem) {
+		return 50.0 * shoppingCartItem.getQuantity();
+
 	}
 
-	
 }
