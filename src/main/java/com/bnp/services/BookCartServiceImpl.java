@@ -17,6 +17,10 @@ public class BookCartServiceImpl {
 				double basePrice = bookList.size() * 50;
 				double discountedPriceForSet = basePrice - ((basePrice * 5) / 100.0);
 				calculatedPrice += discountedPriceForSet;
+			}else {
+				double basePrice = bookList.size() * 50;
+				double discountedPriceForSet = basePrice - ((basePrice * 10) / 100.0);
+				calculatedPrice += discountedPriceForSet;
 			}
 		} else {
 			ShoppingCartItem shoppingCartItembook = bookList.get(0);
