@@ -86,9 +86,9 @@ public class BookCartServiceImplTest {
 		double actualPrice = service.calculatePrice(listshoppingCartItem);
 		Assertions.assertEquals(Double.valueOf("95.0"), actualPrice);
 	}
-	
+
 	@Test
-	public void fivePriceDiscountWhenBuyThreeDifferentBook() {
+	public void tenPriceDiscountWhenBuyThreeDifferentBook() {
 		List<ShoppingCartItem> listshoppingCartItem = new ArrayList<ShoppingCartItem>();
 		ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
 		shoppingCartItem.setBookId(Integer.valueOf("1"));
@@ -99,13 +99,40 @@ public class BookCartServiceImplTest {
 		shoppingCartItem1.setBookId(Integer.valueOf("2"));
 		shoppingCartItem1.setQuantity(Integer.valueOf("1"));
 		listshoppingCartItem.add(shoppingCartItem1);
-		
+
 		ShoppingCartItem shoppingCartItem2 = new ShoppingCartItem();
 		shoppingCartItem2.setBookId(Integer.valueOf("3"));
 		shoppingCartItem2.setQuantity(Integer.valueOf("1"));
 		listshoppingCartItem.add(shoppingCartItem2);
 		double actualPrice = service.calculatePrice(listshoppingCartItem);
 		Assertions.assertEquals(Double.valueOf("135.0"), actualPrice);
+	}
+
+	@Test
+	public void twentyPriceDiscountWhenBuyFourDifferentBook() {
+		List<ShoppingCartItem> listshoppingCartItem = new ArrayList<ShoppingCartItem>();
+		ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
+		shoppingCartItem.setBookId(Integer.valueOf("1"));
+		shoppingCartItem.setQuantity(Integer.valueOf("1"));
+		listshoppingCartItem.add(shoppingCartItem);
+
+		ShoppingCartItem shoppingCartItem1 = new ShoppingCartItem();
+		shoppingCartItem1.setBookId(Integer.valueOf("2"));
+		shoppingCartItem1.setQuantity(Integer.valueOf("1"));
+		listshoppingCartItem.add(shoppingCartItem1);
+
+		ShoppingCartItem shoppingCartItem2 = new ShoppingCartItem();
+		shoppingCartItem2.setBookId(Integer.valueOf("3"));
+		shoppingCartItem2.setQuantity(Integer.valueOf("1"));
+		listshoppingCartItem.add(shoppingCartItem2);
+
+		ShoppingCartItem shoppingCartItem3 = new ShoppingCartItem();
+		shoppingCartItem3.setBookId(Integer.valueOf("4"));
+		shoppingCartItem3.setQuantity(Integer.valueOf("1"));
+		listshoppingCartItem.add(shoppingCartItem3);
+		double actualPrice = service.calculatePrice(listshoppingCartItem);
+
+		Assertions.assertEquals(Double.valueOf("160.0"), actualPrice);
 	}
 
 }

@@ -13,18 +13,22 @@ public class BookCartServiceImpl {
 	public double calculatePrice(List<ShoppingCartItem> bookList) {
 		double calculatedPrice = 0d;
 		if (bookList != null) {
-			if (bookList.size() == 2) {
+			if (bookList.size() == 1) {
+				ShoppingCartItem shoppingCartItembook = bookList.get(0);
+				return 50.0 * shoppingCartItembook.getQuantity();
+			} else if (bookList.size() == 2) {
 				double basePrice = bookList.size() * 50;
 				double discountedPriceForSet = basePrice - ((basePrice * 5) / 100.0);
 				calculatedPrice += discountedPriceForSet;
-			}else {
+			} else if (bookList.size() == 3) {
 				double basePrice = bookList.size() * 50;
 				double discountedPriceForSet = basePrice - ((basePrice * 10) / 100.0);
 				calculatedPrice += discountedPriceForSet;
+			} else if (bookList.size() == 4) {
+				double basePrice = bookList.size() * 50;
+				double discountedPriceForSet = basePrice - ((basePrice * 20) / 100.0);
+				calculatedPrice += discountedPriceForSet;
 			}
-		} else {
-			ShoppingCartItem shoppingCartItembook = bookList.get(0);
-			return 50.0 * shoppingCartItembook.getQuantity();
 		}
 
 		return calculatedPrice;
